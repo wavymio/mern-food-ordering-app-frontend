@@ -6,6 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 import { Separator } from './ui/separator'
 import { Button } from './ui/button'
+const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL
 
 const UsernameMenu = () => {
     const { user, logout } = useAuth0()
@@ -21,7 +22,7 @@ const UsernameMenu = () => {
                 </DropdownMenuItem>
                 <Separator />
                 <DropdownMenuItem>
-                    <Button onClick={() => logout()} className='flex flex-1 font-bold bg-orange-500'>Logout</Button>
+                    <Button onClick={() => logout({logoutParams: redirectUri})} className='flex flex-1 font-bold bg-orange-500'>Logout</Button>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
