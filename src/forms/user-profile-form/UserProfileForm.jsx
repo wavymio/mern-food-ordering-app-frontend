@@ -16,7 +16,7 @@ const formSchema = z.object({
 
 })
 
-const UserProfileForm = ({ currentUser, onSave, isLoading }) => {
+const UserProfileForm = ({ currentUser, onSave, isLoading, title="User Profile", buttonText="Submit" }) => {
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: currentUser
@@ -30,7 +30,7 @@ const UserProfileForm = ({ currentUser, onSave, isLoading }) => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSave)} className='space-y-4 bg-gray-50 rounded-ld md:p-10'>
                 <div>
-                    <h2 className="text-2xl font-bold">User Profile Form</h2>
+                    <h2 className="text-2xl font-bold">{title}</h2>
                     <FormDescription>
                         View and change your profile information here
                     </FormDescription>
@@ -86,7 +86,7 @@ const UserProfileForm = ({ currentUser, onSave, isLoading }) => {
                 {isLoading ? (
                     <LoadingButton />
                 ) : (
-                    <Button type="submit" className='bg-orange-500'>Submit</Button>
+                    <Button type="submit" className='bg-orange-500'>{buttonText}</Button>
                 )}
             </form>
         </Form>
