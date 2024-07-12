@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import landingImage from '../assets/landing.png'
 import appDownloadImage from '../assets/appDownload.png'
 import SearchBar from '../components/SearchBar'
@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <div className='flex flex-col gap-12'>
             <div className="md:px-32 bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
-                <h1 className="text-5xl font-bold tracking-tight text-orange-600">
+                <h1 id="search" className="text-5xl font-bold tracking-tight text-orange-600">
                     Tuck into a takeway today
                 </h1>
                 <span className="text-xl font-bold">Food is just a click away!</span>
